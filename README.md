@@ -159,6 +159,8 @@ configuration:
 + **Add users to group** - (optional) A group to wich all the users created
   from this LDAP authentication will added upon creation. This group should not
   exist on LDAP.
++ **Add prefix to group name - (optional) Add prefix to all group names created 
+  from LDAP
 + **Create new groups** - If enabled, groups that don't already exist on
   redmine will be created.
 + **Create new users** - If enabled, users that don't already exist on redmine

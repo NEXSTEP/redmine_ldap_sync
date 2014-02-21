@@ -64,7 +64,8 @@ en:
   field_required_group: "Users must be members of"
   field_admin_group: "Administrators group"
   field_fixed_group: "Add users to group"
-
+  field_group_prefix: "Add prefix to group name"
+  
   field_user_group_fields: "User/Group fields"
   field_firstname: "First name"
   field_lastname: "Last name"

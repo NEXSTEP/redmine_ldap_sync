@@ -30,7 +30,7 @@ class LdapSetting
   CLASS_NAMES = %w( class_user class_group )
   FLAGS = %w( create_groups create_users active )
   COMBOS = %w( group_membership nested_groups sync_on_login dyngroups )
-  OTHERS = %w( account_disabled_test user_fields_to_sync group_fields_to_sync user_ldap_attrs group_ldap_attrs fixed_group admin_group required_group group_search_filter groupname_pattern groups_base_dn dyngroups_cache_ttl )
+  OTHERS = %w( account_disabled_test user_fields_to_sync group_fields_to_sync user_ldap_attrs group_ldap_attrs fixed_group group_prefix admin_group required_group group_search_filter groupname_pattern groups_base_dn dyngroups_cache_ttl )
 
   validates_presence_of :auth_source_ldap_id
   validates_presence_of :class_user, :class_group, :groupname

@@ -114,7 +114,9 @@ module LdapSync::EntityManager
 
       with_ldap_connection do |ldap|
         # Find which of the user's current groups are in ldap
-        filtered_groups = user_groups.select {|g| groupname_regexp =~ g }
+        filtered_groups = user_groups.select {|g| g.start_with?(setting.group_prefix) }
+                                     .map {|g| g.sub(setting.group_prefix, "") }
+                                     .select {|g| groupname_regexp =~ g }
         names_filter    = filtered_groups.map {|g| Net::LDAP::Filter.eq( setting.groupname, g )}.reduce(:|)
         find_all_groups(ldap, names_filter, n(:groupname)) do |group|
           changes[:deleted] << group.first
@@ -163,6 +165,8 @@ module LdapSync::EntityManager
 
       changes[:added].delete_if {|group| groupname_regexp !~ group }
       changes[:deleted] -= changes[:added]
+      changes[:added].map! {|group| setting.group_prefix.downcase + group }
+      changes[:deleted].map! {|group| setting.group_prefix.downcase + group }
       changes[:added].delete_if {|group| user_groups.include?(group.downcase) }
 
       changes

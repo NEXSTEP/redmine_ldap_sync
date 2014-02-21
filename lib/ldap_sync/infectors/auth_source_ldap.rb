@@ -130,7 +130,7 @@ module LdapSync::Infectors::AuthSourceLdap
         groupname = group_data[attr_groupname].first
         return unless setting.groupname_regexp =~ groupname
 
-        group, is_new_group = find_or_create_group(groupname, group_data)
+        group, is_new_group = find_or_create_group(setting.group_prefix + groupname, group_data)
         return if group.nil?
 
         trace "-- #{is_new_group ? 'Creating' : 'Updating'} group '#{group.name}'...",

@@ -64,6 +64,7 @@ ru:
   field_required_group: "Пользователи должны входить в группу"
   field_admin_group: "Группа администраторов"
   field_fixed_group: "Добавлять пользователей в группы"
+  field_group_prefix: "Добавлять префикс к имени группы"
 
   field_user_group_fields: "Поля пользователя/группы"
   field_firstname: "Имя"
